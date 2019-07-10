@@ -12,11 +12,15 @@ Clone git repository
 
 To install without docker:
 Go to api folder and run Npm install
+
 Go to truffle folder and run npm install
+
 Go to ui folder Run npm install
 
 Run ganache-cli
+
 Truffle migrate --compile
+
 Go to api and run npm start
 
 
