@@ -23,7 +23,7 @@ let TokenContractInstance;
 
 (async () => {
   const account = (await web3.eth.getAccounts())[0];
-
+  console.log('account = '+account);
   TokenContract.defaults({
     from: account,
     gas: 999999,

@@ -14,9 +14,9 @@ Clone git repository
 
 To install without docker:
 ```
-Go to api folder and run Npm install
+Go to api folder and run npm install
 Go to truffle folder and run npm install
-Go to ui folder Run npm install
+Go to ui folder run npm install
 ```
 
 To run:
