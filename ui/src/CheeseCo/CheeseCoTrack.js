@@ -53,7 +53,7 @@ class CheeseCoTrack extends React.Component {
   render() {
 
     const panes = [
-      {
+      /*{
         menuItem: <Menu.Item>50 pounds of Brie
           <Label>5f8e21</Label>
         </Menu.Item>,
@@ -70,7 +70,7 @@ class CheeseCoTrack extends React.Component {
           <Label>82aq2b</Label>
         </Menu.Item>,
         render: () => <ViewTrack />
-      },
+      },*/
     ]
 
     return <>

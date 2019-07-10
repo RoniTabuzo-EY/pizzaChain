@@ -20,11 +20,11 @@ const CheeseCo = props => {
     <Container>
       <Menu stackable>
         <Menu.Item header>Cheese Co.</Menu.Item>
+        <Menu.Item name='Orders' />
         <Menu.Item name='Shipments' as={NavLink} to={`${match.url}/shipments`} />
         <Menu.Item name='Tracking' as={NavLink} to={`${match.url}/track`} />
         <Menu.Item name='Payment' />
-        <Menu.Item name='Orders' />
-        <Menu.Item position='right'>PizzaBucks balance: 0 PB</Menu.Item>
+        <Menu.Item position='right'>Mode: Manual; PizzaBucks balance: 0 PB</Menu.Item>
       </Menu>
       <Switch>
         <Route path={`${match.url}/shipments`} component={CheeseCoInventory} />
