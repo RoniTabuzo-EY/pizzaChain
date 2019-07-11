@@ -1,17 +1,27 @@
 const express = require("express");
-const tokenRouter = require("./routes/Token.route");
+var str = process.cwd();
+str = str + "/src/routes/Token.route";
+const tokenRouter = require(str);
 const basicAuth  = require("express-basic-auth");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const util = require('util');
+const zlib = require('zlib');
+const contract = require("truffle-contract");
 
-const CONFIG = require("./CONFIG");
+const CONFIG = require("../CONFIG");
+const props = require("../CONFIG").getProps();
 
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(props.rpc.host + ':' + props.rpc.port));
 const {
   hexToBytes,
   toHex,
   bytesToHex,
   BN,
 } = web3.utils;
+
+const tokenContractJson = require("../../../truffle/build/contracts/Token.json");
 
 const deflate = util.promisify(zlib.deflateRaw);
 const inflate = util.promisify(zlib.inflateRaw);

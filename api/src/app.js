@@ -1,10 +1,15 @@
+'use strict'
 const express = require("express");
-const tokenRouter = require("./routes/Token.route");
+console.log(process.cwd());
+const CONFIG = require("./CONFIG");
+var str = process.cwd();
+str = str + "/src/routes/Token.route";
+const tokenRouter = require(str);
+//const tokenRouter = require("/Users/hf339db/others/pizzaChain/api/routes/Token.route");
 const basicAuth  = require("express-basic-auth");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const CONFIG = require("./CONFIG");
 
 const app = express();
 const port = process.env.PORT || 6000;

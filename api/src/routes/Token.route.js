@@ -135,4 +135,5 @@ router.post('/:tokenId/transfer', async (req, res, next) => {
 });
 
 var _default = router;
-exports.default = _default;
+//exports.default = _default;
+module.exports = router;
