@@ -1,13 +1,13 @@
-import express from 'express';
+const express = require("express");
 
-import { mint, burn, transfer, getBalance } from '../services/Pizzaco.service';
+const PizzaCoin  = require("../services/Pizzaco.service");
 
 const router = express.Router({ mergeParams: true });
 
 router.put('/:tokenId', async (req, res, next) => {
   const { tokenId } = req.params;
   try {
-    let response = await mint(tokenId);
+    let response = await PizzaCoin.mint(tokenId);
     return res
       .status(201)
       .jsonp({
@@ -24,7 +24,7 @@ router.put('/:tokenId', async (req, res, next) => {
 router.delete('/:tokenId', async (req, res, next) => {
   const { tokenId } = req.params;
   try {
-    let response = await burn(tokenId);
+    let response = await PizzaCoin.burn(tokenId);
     return res
       .status(200)
       .jsonp({
@@ -38,4 +38,5 @@ router.delete('/:tokenId', async (req, res, next) => {
   }
 });
 
-export default router;
+var _default = router;
+exports.default = _default;

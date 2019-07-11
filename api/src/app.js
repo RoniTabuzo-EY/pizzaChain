@@ -1,10 +1,10 @@
-import express from 'express';
-import tokenRouter from './routes/Token.route';
-import basicAuth from 'express-basic-auth';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const express = require("express");
+const tokenRouter = require("./routes/Token.route");
+const basicAuth  = require("express-basic-auth");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-import CONFIG from './CONFIG';
+const CONFIG = require("./CONFIG");
 
 const app = express();
 const port = process.env.PORT || 6000;

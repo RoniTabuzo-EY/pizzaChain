@@ -1,7 +1,7 @@
-import express from 'express';
-import web3 from 'web3';
+const express = require("express");
+const web3 = require("web3");
 
-import { mint, burn, getData, setData, transfer, tokensOwned } from '../services/Token.service';
+const Token = require("../services/Token.service");
 
 const router = express.Router({ mergeParams: true });
 
@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
   const { user } = req.auth;
 
   try {
-    let response = await tokensOwned(user);
+    let response = await Token.tokensOwned(user);
 
     return res.
       status(200)
@@ -32,9 +32,9 @@ router.put('/:tokenId', async (req, res, next) => {
   try {
     let response;
     if (Object.entries(req.body).length === 0) { // req.body is empty
-      response = await mint(tokenId, false, user);
+      response = await Token.mint(tokenId, false, user);
     } else {
-      response = await mint(tokenId, req.body, user);
+      response = await Token.mint(tokenId, req.body, user);
     }
 
     return res
@@ -54,7 +54,7 @@ router.delete('/:tokenId', async (req, res, next) => {
   const { tokenId } = req.params;
   const { user } = req.auth;
   try {
-    let response = await burn(tokenId, user);
+    let response = await Token.burn(tokenId, user);
     return res
       .status(200)
       .jsonp({
@@ -72,7 +72,7 @@ router.get('/:tokenId', async (req, res, next) => {
   const { tokenId } = req.params;
   const { user } = req.auth;
   try {
-    let response = await getData(tokenId, user);
+    let response = await Token.getData(tokenId, user);
     return res
       .status(200)
       .jsonp({
@@ -90,7 +90,7 @@ router.post('/:tokenId', async (req, res, next) => {
   const { tokenId } = req.params;
   const { user } = req.auth;
   try {
-    let response = await setData(tokenId, req.body, user);
+    let response = await Token.setData(tokenId, req.body, user);
     return res
       .status(200)
       .jsonp({
@@ -120,7 +120,7 @@ router.post('/:tokenId/transfer', async (req, res, next) => {
   }
 
   try {
-    let response = await transfer(tokenId, address, user);
+    let response = await Token.transfer(tokenId, address, user);
     return res
       .status(200)
       .jsonp({
@@ -134,4 +134,5 @@ router.post('/:tokenId/transfer', async (req, res, next) => {
   }
 });
 
-export default router;
+var _default = router;
+exports.default = _default;

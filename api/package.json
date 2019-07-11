@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node src/app.js",
     "test": "mocha --exit",
-    "watch": "babel --watch --copy-files --verbose src -d dist",
-    "dev": "nodemon --delay 2.5 ./dist/app.js"
+    "watch": "babel --watch --copy-files --verbose src -d src",
+    "dev": "nodemon --delay 2.5 ./src/app.js"
   },
   "keywords": [],
   "author": "",

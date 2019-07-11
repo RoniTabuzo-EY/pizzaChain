@@ -1,6 +1,6 @@
-import contract from 'truffle-contract';
-import Web3 from 'web3';
-import pizzaContractJson from '../../contracts/PizzaCoin.json';
+const contract = require("truffle-contract");
+const Web3 = require("web3");
+const pizzaContractJson = require("../../../truffle/build/contracts/PizzaCoin.json");
 
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_PROVIDER));
 
